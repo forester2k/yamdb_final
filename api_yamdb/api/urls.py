@@ -5,6 +5,7 @@ from .views import CategoryViewSet, CommentViewSet, GenreViewSet
 from .views import get_jwt_token, UserViewSet, ReviewViewSet
 from .views import TitleViewSet, signup
 
+
 router = DefaultRouter()
 router.register('users', UserViewSet)
 router.register('categories', CategoryViewSet)
