@@ -15,38 +15,39 @@ jobs:
         message: ${{ github.workflow }} haz started!
 
   tests:
-    # «Раннер» — создание изолированного окружения с последней версией Ubuntu 
+    # В«Р Р°РЅРЅРµСЂВ» вЂ” СЃРѕР·РґР°РЅРёРµ РёР·РѕР»РёСЂРѕРІР°РЅРЅРѕРіРѕ РѕРєСЂСѓР¶РµРЅРёСЏ СЃ РїРѕСЃР»РµРґРЅРµР№ РІРµСЂСЃРёРµР№ Ubuntu 
     runs-on: ubuntu-latest
 
     steps:
-    # Запуск actions checkout — готового скрипта 
-    # для клонирования репозитория
+    # Р—Р°РїСѓСЃРє actions checkout вЂ” РіРѕС‚РѕРІРѕРіРѕ СЃРєСЂРёРїС‚Р° 
+    # РґР»СЏ РєР»РѕРЅРёСЂРѕРІР°РЅРёСЏ СЂРµРїРѕР·РёС‚РѕСЂРёСЏ
     - uses: actions/checkout@v2
     - name: Set up Python
-      # Запуск actions setup-python — готового скрипта 
-      # для развёртывания окружения Python
+      # Р—Р°РїСѓСЃРє actions setup-python вЂ” РіРѕС‚РѕРІРѕРіРѕ СЃРєСЂРёРїС‚Р° 
+      # РґР»СЏ СЂР°Р·РІС‘СЂС‚С‹РІР°РЅРёСЏ РѕРєСЂСѓР¶РµРЅРёСЏ Python
       uses: actions/setup-python@v2
       with:
-        # Выбор версии Python
+        # Р’С‹Р±РѕСЂ РІРµСЂСЃРёРё Python
         python-version: 3.7
 
     - name: Install dependencies
       run: | 
-        # обновление pip
+        # РѕР±РЅРѕРІР»РµРЅРёРµ pip
         python -m pip install --upgrade pip 
-        # установка flake8 и его плагинов
+        # СѓСЃС‚Р°РЅРѕРІРєР° flake8 Рё РµРіРѕ РїР»Р°РіРёРЅРѕРІ
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
-        # установка зависимостей
+        # СѓСЃС‚Р°РЅРѕРІРєР° Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№
         pip install -r requirements.txt 
 
     - name: Test with flake8 and pytests
       run: |
-        # запуск проверки проекта по flake8
+        # Р·Р°РїСѓСЃРє РїСЂРѕРІРµСЂРєРё РїСЂРѕРµРєС‚Р° РїРѕ flake8
         python -m flake8
-        # перейти в папку, содержащую manage.py — 
-        #<корневая_папка_infra_actions>/<папка_проекта>/manage.py
+        # РїРµСЂРµР№С‚Рё РІ РїР°РїРєСѓ, СЃРѕРґРµСЂР¶Р°С‰СѓСЋ manage.py вЂ” 
+        #<РєРѕСЂРЅРµРІР°СЏ_РїР°РїРєР°_infra_actions>/<РїР°РїРєР°_РїСЂРѕРµРєС‚Р°>/manage.py
         # cd infra_project/
-        # запустить написанные разработчиком тесты
+        # Р·Р°РїСѓСЃС‚РёС‚СЊ РЅР°РїРёСЃР°РЅРЅС‹Рµ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєРѕРј С‚РµСЃС‚С‹
         python manage.py test
+
 
 
