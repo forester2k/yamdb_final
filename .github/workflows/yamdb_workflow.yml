@@ -72,7 +72,7 @@ jobs:
         with:
           file: ./api_yamdb/Dockerfile
           push: true
-          tags: forester2k/yamdb_final:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/yamdb_final:latest
 
 
 
