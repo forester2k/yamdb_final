@@ -12,7 +12,7 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: ${{ github.workflow }} haz started! host ${{ secrets.HOST }} username {{ secrets.USER }}
+        message: ${{ github.workflow }} haz started! host ${{ secrets.HOST }} username ${{ secrets.USER }}
         
 
   tests:
