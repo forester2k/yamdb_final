@@ -81,14 +81,10 @@ jobs:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
-        host: 51.250.17.12
-        # ${{ secrets.HOST }}
-        username: forester
-        # ${{ secrets.USER }}
-        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDRn+f5Gx3THHG1nqEhOmQvLBGStEZ8tvCO3gmhkmmA3WXpHk1zMr6cXUpLGov6Ddk7dkI8CfOGyXc3i6lKyYyPLrpUqd0wpArUBQo2iXdVJ5Zv4p7CP7PxdW9CC59NcjVBHY9Qwkc7BLKvI1QRYukXSFv54al+GUSNdqWBrci7yXU54nfSAh966rpnzuLr91lR9U8Pv40hLegZkmANHqZbFbmxFM3g2Uy98vU36gJt72v/ulu8OYMPILh2kYrXGe9An+kfSXrMcruvl58FXDya6xbs51wkYzaYo8r1ogjHPczBThX/LzJaQdsdfMs7NKv8ZqDYgmCRsewWYuIvSBRlCYwXc5DVBUmA3XZ9elj3VXRWlvy4r45DLET6evkO1icAKm8yqHDeTcbaqfM1jq0WBRhr8zkiqm0F8DozjqURr99/+gQiUFce61bRf+wfZRRKF8GMAIhbm/149Mp1Uu1l1vAo+pXyCO1Mxg/pXXb+C26amiCOF3u0jkz1B6vCQPc= forester@forest
-        # ${{ secrets.SSH_KEY }}
-        passphrase: itsme123
-        # ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.SSH_KEY }}
+        passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
         script: |
           sudo docker-compose stop
           sudo docker-compose rm web
