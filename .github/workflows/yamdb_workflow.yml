@@ -12,7 +12,8 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: ${{ github.workflow }} haz started!
+        message: ${{ github.workflow }} haz started! host ${{ secrets.HOST }} username ${{ secrets.USER }}
+        
 
   tests:
     # «Раннер» — создание изолированного окружения с последней версией Ubuntu 
@@ -84,10 +85,10 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
+        passphrase: ${{ secrets.PASSPHRASE }}      
         script: |
-          sudo docker-compose stop
-          sudo docker-compose rm web
+          sudo docker compose stop
+          sudo docker compose rm web
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
