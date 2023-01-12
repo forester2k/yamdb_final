@@ -87,7 +87,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}      
         script: |
-          sudo docker compose stop
+          sudo docker compose stop web
           sudo docker compose rm web -f
           rm .env
           touch .env
