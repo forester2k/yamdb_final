@@ -102,7 +102,7 @@ jobs:
           # sudo docker compose exec web ls -a
           # sudo docker compose exec web cd api_yamdb/
           # sudo docker compose exec web ls api_yamdb/ -a
-          # sudo docker compose exec web python manage.py migrate
+          sudo docker compose exec web python manage.py migrate
           
 
 
