@@ -97,7 +97,7 @@ jobs:
           echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
           echo DB_HOST=${{ secrets.DB_HOST }} >> .env
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-          # sudo docker compose up -d
+          sudo docker compose up -d
           # sudo docker compose exec web ls -a
           # sudo docker compose exec web cd api_yamdb/
           # sudo docker compose exec web ls api_yamdb/ -a
