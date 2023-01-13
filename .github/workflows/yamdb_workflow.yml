@@ -104,7 +104,7 @@ jobs:
           # sudo docker compose exec web ls api_yamdb/ -a
           sudo docker compose exec web python manage.py migrate
           sudo docker compose exec web python manage.py collectstatic --no-input
-          sudo docker compose exec web mv templates/redoc.html static/redoc.html
+          sudo docker compose exec web mv templates/redoc.yaml static/redoc.yaml
 
 
 
