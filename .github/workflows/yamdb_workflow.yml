@@ -1,7 +1,12 @@
 # .github/workflows/**yamdb_workflow.yml**
 name: yamdb workflow
 
-on: [push]
+# on: [push]
+on:
+  push:
+    branches:
+      - '*'
+      - '!master'
 
 jobs:
   send_first_message:
